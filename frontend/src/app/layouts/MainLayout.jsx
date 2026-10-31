@@ -1,26 +1,32 @@
-import React from "react";
 import { Outlet } from "react-router";
 import Navbar from "../../shared/ui/components/Navbar";
 import GlobalPlayer from "../../features/player/ui/GlobalPlayer";
+import "./MainLayout.css";
 
 const MainLayout = () => {
-
-  console.log("main Layout");
-  
   return (
-    <div className="grid grid-rows-[1fr_6fr_1fr] p-2 gap-6 bg-black h-screen text-white">
-      <nav className="  "><Navbar/></nav>
-      <div className="gap-6 grid grid-cols-[2fr_6fr_2fr]">
-        <div className=" rounded-xl p-4 bg-[#101513]">library</div>
-        <div className=" rounded-xl p-4 bg-[#101513]">
+    <div className="app-shell">
+      <header className="app-shell__header">
+        <Navbar />
+      </header>
+
+      <div className="app-shell__workspace">
+        <aside className="app-shell__sidebar app-shell__sidebar--library">
+          <h2>Your Library</h2>
+        </aside>
+
+        <main className="app-shell__content">
           <Outlet />
-        </div>
-        <div className=" rounded-xl p-4 bg-[#101513]">Side bar</div>
+        </main>
+
+        <aside className="app-shell__sidebar app-shell__sidebar--activity">
+          <h2>Friend activity</h2>
+        </aside>
       </div>
 
-      <div className=" p-4 bg-[#101513]">
-        <GlobalPlayer/>
-      </div>
+      <footer className="app-shell__player">
+        <GlobalPlayer />
+      </footer>
     </div>
   );
 };

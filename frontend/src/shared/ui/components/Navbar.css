@@ -1,0 +1,42 @@
+.app-navbar {
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .app-navbar {
+    gap: 8px;
+  }
+
+  .app-navbar > :first-child {
+    gap: 8px;
+  }
+
+  .app-navbar > :first-child a[aria-label="Spotify home"] {
+    display: none;
+  }
+
+  .app-navbar label {
+    height: 42px;
+    gap: 8px;
+    padding-inline: 12px;
+  }
+
+  .app-navbar label > svg:first-child {
+    width: 19px;
+    flex: 0 0 auto;
+  }
+
+  .app-navbar > :last-child {
+    gap: 4px;
+  }
+}
+
+@media (max-width: 420px) {
+  .app-navbar label input {
+    font-size: 12px;
+  }
+
+  .app-navbar > :last-child button[aria-label="What's new"] {
+    display: none;
+  }
+}

@@ -9,6 +9,8 @@ let playerSlice = createSlice({
     duration: 0,
     volume: 1,
     isMuted: false,
+    isShuffleEnabled: false,
+    repeatMode: "off",
     queue: [],
     currentIndex: -1,
   },
@@ -18,6 +20,27 @@ let playerSlice = createSlice({
     },
     addToQueue: (state, action) => {
       state.queue.push(action.payload);
+    },
+    setQueue: (state, action) => {
+      state.queue = action.payload;
+    },
+    setCurrentTrack: (state, action) => {
+      state.currentSong = action.payload.song;
+      state.currentIndex = action.payload.index;
+    },
+    setIsPlaying: (state, action) => {
+      state.isPlaying = Boolean(action.payload);
+    },
+    toggleShuffle: (state) => {
+      state.isShuffleEnabled = !state.isShuffleEnabled;
+    },
+    cycleRepeatMode: (state) => {
+      state.repeatMode =
+        state.repeatMode === "off"
+          ? "all"
+          : state.repeatMode === "all"
+            ? "one"
+            : "off";
     },
     setCurrentTime: (state, action) => {
       state.currentTime = action.payload;
@@ -40,6 +63,11 @@ let playerSlice = createSlice({
 export const {
   addSong,
   addToQueue,
+  setQueue,
+  setCurrentTrack,
+  setIsPlaying,
+  toggleShuffle,
+  cycleRepeatMode,
   setCurrentTime,
   setDuration,
   setVolume,

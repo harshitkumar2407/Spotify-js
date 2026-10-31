@@ -8,14 +8,13 @@ import {
 } from 'lucide-react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router'
+import "./Navbar.css"
 
 const Navbar = () => {
   const user = useSelector((state) => state.auth.user)
   const profileInitial = user?.firstName?.trim()?.charAt(0).toUpperCase() || 'H'
-console.log(user);
-
   return (
-    <div className="flex h-full items-center justify-between gap-4">
+    <div className="app-navbar flex h-full items-center justify-between gap-4">
       <div className="flex shrink-0 items-center gap-6">
         <Link
           to="/main"
