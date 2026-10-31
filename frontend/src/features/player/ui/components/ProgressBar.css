@@ -1,0 +1,79 @@
+.progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.progress-bar__time {
+  min-width: 32px;
+  color: #b3b3b3;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-bar__slider {
+  --progress: 0%;
+
+  width: 100%;
+  height: 4px;
+  margin: 0;
+  border-radius: 999px;
+  appearance: none;
+  background: linear-gradient(
+    to right,
+    #1ed760 0 var(--progress),
+    #5e5e5e var(--progress) 100%
+  );
+  cursor: pointer;
+  transition: height 120ms ease;
+}
+
+.progress-bar__slider::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  appearance: none;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.progress-bar__slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.progress-bar__slider:hover,
+.progress-bar__slider:focus-visible {
+  height: 6px;
+}
+
+.progress-bar__slider:hover::-webkit-slider-thumb,
+.progress-bar__slider:focus-visible::-webkit-slider-thumb,
+.progress-bar__slider:hover::-moz-range-thumb,
+.progress-bar__slider:focus-visible::-moz-range-thumb {
+  opacity: 1;
+}
+
+.progress-bar__slider:disabled {
+  cursor: default;
+}
+
+.progress-bar__slider:disabled::-webkit-slider-thumb,
+.progress-bar__slider:disabled::-moz-range-thumb {
+  opacity: 0;
+}
+
+.progress-bar__slider:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
